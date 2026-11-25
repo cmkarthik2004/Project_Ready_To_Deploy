@@ -1,0 +1,41 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+frontend/next-env.d.ts
+*.tsbuildinfo
+
+# Runtime data (user uploads, derived data, models) — never commit
+data/uploads/*
+data/processed/*
+data/training_data/*
+!data/**/.gitkeep
+/models/
+data/models/
+*.gguf
+*.safetensors
+backend/app/fine_tuning/output/
+qdrant_storage/
+backups/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
