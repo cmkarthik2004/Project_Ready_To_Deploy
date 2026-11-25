@@ -1,0 +1,79 @@
+# FinRAG — production-style stack. Copy .env.example to .env and set secrets first.
+#   docker compose up -d --build
+# Optional profile:
+#   --profile nim   : NVIDIA NIM LLM container (needs an NVIDIA GPU + NGC_API_KEY)
+name: finrag
+
+x-backend: &backend
+  build: ./backend
+  env_file: .env
+  environment:
+    DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    QDRANT_URL: http://qdrant:6333
+    LLM_BASE_URL: ${LLM_BASE_URL:-http://llm:8080/v1}
+    UPLOAD_DIR: /data/uploads
+  volumes:
+    - uploads:/data/uploads
+    - hf_cache:/models/hf
+  depends_on:
+    postgres: { condition: service_healthy }
+    qdrant: { condition: service_started }
+  restart: unless-stopped
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"], interval: 5s, retries: 20 }
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:v1.20.0
+    volumes: [qdrant:/qdrant/storage]
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY:-}
+    restart: unless-stopped
+
+  llm:
+    # llama.cpp OpenAI-compatible server on CPU. Put the GGUF file in ./models.
+    image: ghcr.io/ggml-org/llama.cpp:server
+    command: ["-m", "/models/${LLM_GGUF:-Qwen3-4B-Q4_K_M.gguf}", "--alias", "${LLM_MODEL:-qwen3-4b-q4_k_m}", "-c", "8192", "--host", "0.0.0.0", "--port", "8080", "-t", "${LLM_THREADS:-4}", "-np", "1", "--cache-ram", "${LLM_CACHE_RAM_MB:-1024}"]
+    volumes: ["./models:/models:ro"]
+    restart: unless-stopped
+
+  api:
+    <<: *backend
+    ports: ["127.0.0.1:8001:8000"]
+
+  worker:
+    <<: *backend
+    command: ["python", "-m", "app.worker"]
+    healthcheck: { disable: true }
+
+  web:
+    build: ./frontend
+    environment:
+      BACKEND_URL: http://api:8000
+    ports: ["${WEB_PORT:-3000}:3000"]
+    depends_on: [api]
+    restart: unless-stopped
+
+  nim:
+    # NVIDIA NIM (GPU). Set LLM_BASE_URL=http://nim:8000/v1 and LLM_MODEL to the NIM model id.
+    # Requires: NVIDIA GPU, NVIDIA Container Toolkit, NGC_API_KEY. Not verified in the dev environment.
+    profiles: ["nim"]
+    image: ${NIM_IMAGE:-nvcr.io/nim/meta/llama-3.1-8b-instruct:latest}
+    environment:
+      NGC_API_KEY: ${NGC_API_KEY:-}
+    volumes: [nim_cache:/opt/nim/.cache]
+    deploy:
+      resources:
+        reservations:
+          devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
+    restart: unless-stopped
+
+volumes: { pgdata: {}, qdrant: {}, uploads: {}, hf_cache: {}, nim_cache: {} }
