@@ -1,0 +1,4 @@
+# Optional Docling table engine. Install into a SEPARATE virtualenv and point
+# DOCLING_PYTHON at its interpreter: docling-ibm-models pins huggingface_hub<2,
+# which conflicts with transformers 5.x used by the main backend.
+docling==2.152.0

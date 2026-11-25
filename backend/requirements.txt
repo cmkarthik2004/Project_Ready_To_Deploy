@@ -1,0 +1,28 @@
+# FinRAG backend — exact versions verified in development (Python 3.13).
+# torch: install the CPU wheel from https://download.pytorch.org/whl/cpu (see Dockerfile) or a CUDA build on GPU hosts.
+fastapi==0.165.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.4
+pydantic-settings==2.16.3
+python-dotenv==1.2.4
+email-validator==2.4.0
+SQLAlchemy==2.1.9
+alembic==1.20.1
+psycopg[binary]==3.3.9
+pwdlib[argon2]==0.4.2
+PyJWT==2.15.1
+python-multipart==0.0.34
+slowapi==0.1.10
+httpx==0.28.1
+# document processing
+pymupdf==2.1
+python-docx==1.2.0
+openpyxl==3.1.5
+pandas==3.1.1
+xlrd==2.0.2
+# RAG
+qdrant-client==1.20.0
+sentence-transformers==6.3.0
+transformers==5.24.0
+huggingface_hub==2.4.0
+numpy==2.5.5

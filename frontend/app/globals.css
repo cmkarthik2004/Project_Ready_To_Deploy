@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-brand-50: #eef6ff;
+  --color-brand-100: #d9eaff;
+  --color-brand-500: #2f6fed;
+  --color-brand-600: #1f57d1;
+  --color-brand-700: #1a46a8;
+}
+
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
+
+body { @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100; }
+
+@utility card { @apply rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900; }
+@utility btn { @apply inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50; }
+@utility btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700; }
+@utility btn-ghost { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800; }
+@utility btn-danger { @apply btn border border-red-300 bg-white text-red-700 hover:bg-red-50 dark:border-red-900 dark:bg-slate-900 dark:text-red-400; }
+@utility input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:focus:ring-brand-700/40; }
+@utility label { @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+.table { @apply w-full text-left text-sm; }
+.table th { @apply border-b border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400; }
+.table td { @apply border-b border-slate-100 px-3 py-2 align-top dark:border-slate-800; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Chart palette: validated categorical order (adjacent-pair CVD ΔE ≥ 8 in both modes), selected per mode, not flipped. */
+:root {
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100;
+  --series-5: #e87ba4; --series-6: #008300; --series-7: #6250d6; --series-8: #e34948;
+  --viz-surface: #fcfcfb; --viz-ink: #0b0b0b; --viz-ink-2: #52514e; --viz-muted: #898781;
+  --viz-grid: #e1e0d9; --viz-axis: #c3c2b7; --viz-mid: #f0efec; --viz-up: #006300; --viz-down: #d03b3b;
+  --viz-pos: #2a78d6; --viz-neg: #e34948;
+}
+.dark {
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+  --series-5: #d55181; --series-6: #0ca30c; --series-7: #9085e9; --series-8: #e66767;
+  --viz-surface: #1a1a19; --viz-ink: #f0efec; --viz-ink-2: #c3c2b7; --viz-muted: #898781;
+  --viz-grid: #2c2c2a; --viz-axis: #383835; --viz-mid: #383835; --viz-up: #0ca30c; --viz-down: #e66767;
+  --viz-pos: #3987e5; --viz-neg: #e66767;
+}
+@media print { aside, header, .no-print { display: none !important; } .card { break-inside: avoid; } }

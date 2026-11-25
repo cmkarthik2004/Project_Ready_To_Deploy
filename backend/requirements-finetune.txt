@@ -1,0 +1,5 @@
+# LoRA fine-tuning (optional). Install on top of requirements.txt.
+peft==0.22.0
+trl==1.18.2
+datasets==5.2.0
+accelerate==1.16.0

@@ -1,0 +1,8 @@
+{"question": "What was the consolidated revenue from operations for 2024-25?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["9,80,136"], "expected_location": {"page": 100}}
+{"question": "What were the consolidated total assets as at 31st March 2025?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["19,50,121"], "expected_location": {"page": 99}}
+{"question": "What was the consolidated profit for the year 2024-25?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["81,309"], "expected_location": {"page": 100}}
+{"question": "What were consolidated cash and cash equivalents as at 31st March 2025?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["1,06,502"], "expected_location": {"page": 99}}
+{"question": "What was the consolidated basic earnings per share for 2024-25?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["51.47"], "expected_location": {"page": 100}}
+{"question": "What were the consolidated current borrowings as at 31st March 2025?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["1,10,631"], "expected_location": {"page": 99}}
+{"question": "What were the consolidated finance costs for 2024-25?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["24,269"], "expected_location": {"page": 100}}
+{"question": "What was the standalone revenue from operations for 2024-25?", "document_filenames": ["RIL-Integrated-Annual-Report-2024-25.pdf"], "expected_numbers": ["5,32,792"], "expected_location": {"page": 58}}

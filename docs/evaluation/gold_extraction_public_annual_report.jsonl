@@ -1,0 +1,15 @@
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "total_assets", "period_contains": "2025", "expected_value": "1950121", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "total_equity", "period_contains": "2025", "expected_value": "1009626", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "total_liabilities", "period_contains": "2025", "expected_value": "940495", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "revenue_from_operations", "period_contains": "2024-25", "expected_value": "980136", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "net_profit", "period_contains": "2024-25", "expected_value": "81309", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "profit_before_tax", "period_contains": "2024-25", "expected_value": "106017", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "eps_basic", "period_contains": "2024-25", "expected_value": "51.47", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "borrowings_current", "period_contains": "2025", "expected_value": "110631", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "borrowings_non_current", "period_contains": "2025", "expected_value": "236899", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "cash_and_cash_equivalents", "period_contains": "2025", "expected_value": "106502", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "finance_costs", "period_contains": "2024-25", "expected_value": "24269", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "total_income", "period_contains": "2024-25", "expected_value": "998114", "basis": "consolidated"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "revenue_from_operations", "period_contains": "2024-25", "expected_value": "532792", "basis": "standalone"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "other_income", "period_contains": "2024-25", "expected_value": "16094", "basis": "standalone"}
+{"document_filename": "RIL-Integrated-Annual-Report-2024-25.pdf", "metric_key": "total_income", "period_contains": "2024-25", "expected_value": "548886", "basis": "standalone"}
